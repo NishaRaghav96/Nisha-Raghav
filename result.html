@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diet Plan - AI Nutrition Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🥗 Your 3-Meal Diet Plan ({{ current_date }})</h1>
+
+    <h2>🎯 Your Goal: {{ goal }}</h2>
+    <p><strong>Target Calories:</strong> {{ target_calories }} kcal</p>
+    <p><strong>Target Protein:</strong> {{ target_protein }} g</p>
+
+    {% for meal, info in summary.items() %}
+        <h3>🍽️ {{ meal.capitalize() }} ({{ info.calories }} kcal, {{ info.protein }}g protein)</h3>
+        {% if info.foods %}
+        <ul>
+            {% for item in info.foods %}
+                <li>{{ item.dish }} — {{ item.calories }} kcal, {{ item.protein }}g protein</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>No suitable dishes found for this meal.</p>
+        {% endif %}
+    {% endfor %}
+
+    <a href="/">🔁 Try Again</a>
+</div>
+</body>
+</html>

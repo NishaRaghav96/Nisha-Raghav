@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smartest AI Nutrition Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>🥗 Smartest AI Nutrition Assistant</h1>
+    <form action="/result" method="post">
+        <label for="weight">👤 Enter Your Weight (kg):</label>
+        <input type="number" id="weight" name="weight" required min="20" max="200" step="0.1">
+
+        <label for="goal">🎯 Select Your Goal:</label>
+        <select id="goal" name="goal" required>
+            <option value="loss">Weight Loss</option>
+            <option value="maintain">Maintain</option>
+            <option value="gain">Muscle Gain</option>
+        </select>
+
+        <label for="preference_type">🍴 Food Preference:</label>
+        <select id="preference_type" name="preference_type" required>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Non-Vegetarian">Non-Vegetarian</option>
+        </select>
+
+        <button type="submit">🍽️ Generate Diet Plan</button>
+    </form>
+</div>
+</body>
+</html>
