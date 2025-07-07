@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>AI Nutrition Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🥗 AI Nutrition Planner</h1>
+    <form action="/result" method="post">
+      <div class="row">
+        <label>Weight (kg)</label>
+        <input type="number" name="weight" required min="20" max="200" step="0.1"/>
+      </div>
+      <div class="row">
+        <label>Age</label>
+        <input type="number" name="age" required min="10" max="100"/>
+      </div>
+      <div class="row-grid">
+        <div class="column">
+          <label>Gender</label>
+          <select name="gender" required>
+            <option value="Male">Male</option><option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="column">
+          <label>Goal</label>
+          <select name="goal" required>
+            <option value="loss">Weight Loss</option>
+            <option value="maintain">Maintain</option>
+            <option value="gain">Muscle Gain</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <label>Preference</label>
+        <select name="preference_type" required>
+          <option value="Vegetarian">Vegetarian</option>
+          <option value="Non-Vegetarian">Non-Vegetarian</option>
+        </select>
+      </div>
+      <button type="submit">Generate Plan</button>
+    </form>
+  </div>
+</body>
+</html>

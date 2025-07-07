@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Your Diet Plan</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container result">
+    <h1>Your 3‑Meal Plan — {{ current_date }}</h1>
+    <div class="stats-card">
+      <div><strong>Goal:</strong> {{ goal }}</div>
+      <div><strong>Gender:</strong> {{ gender }}</div>
+      <div><strong>Age:</strong> {{ age }}</div>
+      <div><strong>Target Calories:</strong> {{ target_cals }} kcal</div>
+      <div><strong>Target Protein:</strong> {{ target_prot }} g</div>
+    </div>
+
+    {% for meal, info in summary.items() %}
+      <div class="meal-card">
+        <h2>{{ meal.capitalize() }} — {{ info.calories }} kcal, {{ info.protein }} g prot</h2>
+        {% if info.foods %}
+          <ul>
+            {% for item in info.foods %}
+              <li><strong>{{ item.dish }}</strong> — {{ item.calories }} kcal, {{ item.protein }} g</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No dishes found 😟</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <a href="/" class="try-again">🔁 Try Again</a>
+  </div>
+</body>
+</html>

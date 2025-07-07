@@ -1,0 +1,159 @@
+/* Base setup */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fff3e0, #ffe0b2, #fff3e0);
+  background-size: 200% 200%;
+  animation: bgShift 15s ease infinite;
+  color: #333;
+}
+
+/* Gradient animation */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffffee;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(255, 152, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+}
+
+h1 {
+  text-align: center;
+  color: #ef6c00;
+  font-size: 28px;
+}
+
+form .row, .row-grid {
+  margin: 16px 0;
+}
+
+.row-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.column {
+  flex: 1;
+}
+
+label {
+  font-weight: 600;
+  color: #ef6c00;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 2px solid #ffcc80;
+  border-radius: 8px;
+  background: #fffaf5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #ffa726;
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.3);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #ef6c00;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #e65100;
+  transform: scale(1.02);
+}
+
+.result .stats-card {
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffe0b2;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  gap: 10px;
+  box-shadow: inset 0 0 6px #ffd180;
+}
+
+.result .stats-card div {
+  flex: 1 1 45%;
+  color: #e65100;
+  font-weight: 600;
+}
+
+.meal-card {
+  background: #fffdf9;
+  border-left: 6px solid #ff9800;
+  padding: 15px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s;
+}
+
+.meal-card:hover {
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.2);
+}
+
+.meal-card h2 {
+  color: #ef6c00;
+  margin-bottom: 8px;
+}
+
+.meal-card ul {
+  padding-left: 20px;
+}
+
+.meal-card li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+  color: #444;
+}
+
+.try-again {
+  display: block;
+  text-align: center;
+  margin-top: 24px;
+  color: #ef6c00;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.try-again:hover {
+  text-decoration: underline;
+  color: #d84315;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .row-grid {
+    flex-direction: column;
+  }
+}
